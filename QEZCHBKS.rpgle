@@ -32,31 +32,39 @@
 
 
 /// @refers QEZCHBKS(input)
+/// @field hoursBeforeReminder 
+///   Hours before backup to send load-tape message
+/// @field backupWeekMonth
+///   Occurrence of week in month to run backup
+/// @field useSchedule
+///   Run backup using this schedule
 dcl-ds CBKS0100 qualified inz;
   hoursBeforeReminder int(10);
   backupWeekMonth int(10);
   useSchedule char(1);
-  sundayBackup char(1);
+  backupOnSunday char(1);
   sundayBackupTime char(6);
-  mondayBackup char(1);
+  backupOnMonday char(1);
   mondayBackupTime char(6);
-  tuesdayBackup char(1);
+  backupOnTuesday char(1);
   tuesdayBackupTime char(6);
-  wednesdayBackup char(1);
+  backupOnWednesday char(1);
   wednesdayBackupTime char(6);
-  thursdayBackup char(1);
+  backupOnThursday char(1);
   thursdayBackupTime char(6);
-  fridayBackup char(1);
+  backupOnFriday char(1);
   fridayBackupTime char(6);
-  saturdayBackup char(1);
+  backupOnSaturday char(1);
   saturdayBackupTime char(6);
 end-ds;
+
 
 
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Constants
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 /// @refers CBKS0100.[day]Backup: daily backup.
 dcl-c FREQUENCE_DAILY '1';
@@ -105,7 +113,6 @@ dcl-c USE_SAME *blank;
 
 /// @info The Change Backup Schedule (QEZCHBKS) API allows the user to change the Operational Assistant backup schedules.
 /// @link https://www.ibm.com/docs/en/i/7.1?topic=ssw_ibm_i_71%2Fapis%2FQEZCHBKS.html
-///
 /// @param The variable that contains the backup schedule changes.
 /// @param Length of the change request structure.
 /// @param The format of the input structure data, see FORMAT_CBKS0100.

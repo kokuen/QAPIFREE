@@ -40,17 +40,19 @@ end-ds;
 
 /// @refers QEZCHBKL(inputStructure).Records
 dcl-ds Record qualified template;
-  recordLenght int(10);
-  key char(INT3_MAX) options(*varsize);
+  recordLength int(10);
+  structure likeds(RecordStructure);
   dataLength int(10);
-  Data likeds(RecordData);
+  Data char(INT10_MAX) options(*varsize);
 end-ds;
 
-/// @refers QEZCHBKL(inputStructure).Records.Data
-dcl-ds RecordData qualified template;
+/// @refers QEZCHBKL(inputStructure).Records.key
+/// @field Names
+/// Library names are of type char(10) while folder names are of type char(12)
+dcl-ds RecordStructure qualified template;
   arraySize int(10);
   backupType char(1);
-  Names char(INT10_MAX) options(*varsize); // Library name = char(10), folder name = char(12)
+  Names char(INT10_MAX) options(*varsize);
 end-ds;
 
 
@@ -82,7 +84,6 @@ dcl-c BACKUP_NONE 4;
 /// @info The Change Object Backup List (QEZCHBKL) API changes the backup type for a list of objects that are specified
 /// by the user.
 /// @link https://www.ibm.com/docs/en/i/7.1?topic=ssw_ibm_i_71%2Fapis%2FQEZCHBKL.html
-///
 /// @param This structure includes the keys and data that are needed to make the necessary changes to the backup
 /// definitions.
 /// @param The length of the input structure.

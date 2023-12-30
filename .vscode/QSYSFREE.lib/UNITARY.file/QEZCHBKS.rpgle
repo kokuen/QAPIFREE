@@ -1,9 +1,9 @@
 **free
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/// @brief QEZCHBKS
-/// @info Change Backup Schedule
+/// @title QEZCHBKS
+/// @info Change Backup Schedule API resources
 ///
-/// @project FREESYSINC
+/// @project QAPIFREE
 /// @author kokuen
 /// @version 7.1
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -14,14 +14,18 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exports & Imports
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/DEFINE qezchbks
+/IF defined(backup_gen)
+  /EOF
+/ELSE
+  /DEFINE qezchbks
+/ENDIF
 
-/IF not defined(common)
-  /INCLUDE FREESYSINC,COMMON
+/IF not defined(api_common)
+  /INCLUDE QAPIFREE,COMMON
 /ENDIF
 
 /IF not defined(qusec)
-  /INCLUDE FREESYSINC,QUSEC
+  /INCLUDE QAPIFREE,QUSEC
 /ENDIF
 
 
@@ -66,6 +70,9 @@ end-ds;
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+/// @refers QEZCHBKS(inputFormat)
+dcl-c FORMAT_CBKS0100 'CBKS0100';
+
 /// @refers CBKS0100.[day]Backup: daily backup.
 dcl-c FREQUENCE_DAILY '1';
 /// @refers CBKS0100.[day]Backup: weekly backup.
@@ -97,9 +104,9 @@ dcl-c WEEKMONTH_NONE 0;
 dcl-c WEEKMONTH_LAST 5;
 
 /// @refers CBKS0100.useSchedule: no
-dcl-c USE_NO 0;
+dcl-c USE_NO '0';
 /// @refers CBKS0100.useSchedule: yes
-dcl-c USE_YES 1;
+dcl-c USE_YES '1';
 /// @refers CBKS0100.useSchedule: same
 dcl-c USE_SAME *blank;
 
@@ -112,7 +119,7 @@ dcl-c USE_SAME *blank;
 
 
 /// @info The Change Backup Schedule (QEZCHBKS) API allows the user to change the Operational Assistant backup schedules.
-/// @link https://www.ibm.com/docs/en/i/7.1?topic=ssw_ibm_i_71%2Fapis%2FQEZCHBKS.html
+/// @link https://www.ibm.com/docs/en/i/7.1?topic=ssw_ibm_i_71/apis/QEZCHBKS.html
 /// @param The variable that contains the backup schedule changes.
 /// @param Length of the change request structure.
 /// @param The format of the input structure data, see FORMAT_CBKS0100.

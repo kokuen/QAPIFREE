@@ -1,9 +1,9 @@
 **free
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/// @brief QEZCHBKL
-/// @info Change Object Backup List
+/// @title QEZCHBKL
+/// @info Change Object Backup List API resources
 ///
-/// @project FREESYSINC
+/// @project QAPIFREE
 /// @author kokuen
 /// @version 7.1
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -14,14 +14,18 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exports & Imports
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/DEFINE qezchbkl
+/IF defined(backup_gen)
+  /EOF
+/ELSE
+  /DEFINE qezchbkl
+/ENDIF
 
-/IF not defined(common)
-  /INCLUDE FREESYSINC,COMMON
+/IF not defined(api_common)
+  /INCLUDE QAPIFREE,COMMON
 /ENDIF
 
 /IF not defined(qusec)
-  /INCLUDE FREESYSINC,QUSEC
+  /INCLUDE QAPIFREE,QUSEC
 /ENDIF
 
 
@@ -47,8 +51,7 @@ dcl-ds Record qualified template;
 end-ds;
 
 /// @refers QEZCHBKL(inputStructure).Records.key
-/// @field Names
-/// Library names are of type char(10) while folder names are of type char(12)
+/// @field "Names" Library names are of type char(10) while folder names are of type char(12)
 dcl-ds RecordStructure qualified template;
   arraySize int(10);
   backupType char(1);

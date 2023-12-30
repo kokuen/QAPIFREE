@@ -1,9 +1,9 @@
 **free
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/// @brief QUSEC
+/// @title QUSEC
 /// @info Error management resources for APIs
 /// 
-/// @project FREESYSINC
+/// @project QAPIFREE
 /// @author kokuen
 /// @version 7.1
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -16,8 +16,8 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /DEFINE qusec
 
-/IF not defined(common)
-  /INCLUDE FREESYSINC,COMMON
+/IF not defined(api_common)
+  /INCLUDE QAPIFREE,COMMON
 /ENDIF
 
 

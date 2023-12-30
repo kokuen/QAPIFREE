@@ -3,7 +3,7 @@
 // @brief COMMON
 // @info Resources shared by every API
 // 
-// @project FREESYSINC
+// @project QAPIFREE
 // @author kokuen
 // @version 7.1
 ///
@@ -14,7 +14,7 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exports & Imports
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/DEFINE common
+/DEFINE api_common
 
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,3 +26,6 @@
 dcl-c INT3_MAX 127;
 dcl-c INT5_MAX 32767;
 dcl-c INT10_MAX 2147483647;
+
+dcl-c UNS3_MAX(255);
+dcl-c UNS5_MAX(65535);

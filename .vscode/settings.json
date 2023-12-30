@@ -1,5 +1,5 @@
 {
   "editor.find.autoFindInSelection": "always",
   "editor.formatOnPaste": true,
-  "diffEditor.experimental.collapseUnchangedRegions": false
+  "diffEditor.hideUnchangedRegions.enabled": false
 }

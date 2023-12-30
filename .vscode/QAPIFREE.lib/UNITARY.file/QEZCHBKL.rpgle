@@ -14,18 +14,18 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exports & Imports
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/IF defined(backup_gen)
+/IF defined(backup_apis)
   /EOF
 /ELSE
   /DEFINE qezchbkl
 /ENDIF
 
-/IF not defined(api_common)
-  /INCLUDE QAPIFREE,COMMON
+/IF not defined(shared_resources)
+  /INCLUDE SHARED,RESOURCES
 /ENDIF
 
 /IF not defined(qusec)
-  /INCLUDE QAPIFREE,QUSEC
+  /INCLUDE SHARED,QUSEC
 /ENDIF
 
 

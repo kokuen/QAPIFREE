@@ -16,8 +16,8 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /DEFINE qusec
 
-/IF not defined(api_common)
-  /INCLUDE QAPIFREE,COMMON
+/IF not defined(shared_resources)
+  /INCLUDE SHARED,RESOURCES
 /ENDIF
 
 
@@ -43,7 +43,7 @@ dcl-ds ERRC0200 qualified inz;
   exceptionID char(7);
   *n char(1); // Reserved by the system
   dataCCSID int(10);
-  OffsetToData int(10);
+  offsetToData int(10);
   dataLength int(10);
   output char(INT5_MAX) options(*varsize);
 end-ds;

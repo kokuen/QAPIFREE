@@ -19,11 +19,11 @@
 
 
 /IF not defined(api_common)
-  /INCLUDE QAPIFREE,COMMON
+  /INCLUDE BASE,COMMON
 /ENDIF
 
 /IF not defined(qusec)
-  /INCLUDE QAPIFREE,QUSEC
+  /INCLUDE BASE,QUSEC
 /ENDIF
 
 // -----------------
@@ -43,7 +43,7 @@
 /ELSEIF defined(qezrtbks)
   /EOF
 /ELSE
-  /DEFINE backup_gen
+  /DEFINE backup_apis
 /ENDIF
 
 
